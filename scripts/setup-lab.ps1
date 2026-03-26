@@ -2,6 +2,7 @@
 
 
 # Install-Module dbatools -Scope CurrentUser -Force
+# Install-Module dbachecks -Scope CurrentUser -Force
 
 $ErrorActionPreference = 'Stop'
 
