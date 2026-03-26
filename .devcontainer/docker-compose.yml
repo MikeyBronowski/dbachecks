@@ -1,0 +1,39 @@
+services:
+  workspace:
+    image: mcr.microsoft.com/powershell:latest
+    container_name: workspace
+    hostname: workspace
+    working_dir: /workspaces/dbachecks
+    volumes:
+      - ..:/workspaces/dbachecks:cached
+    command: sleep infinity
+
+  sql1:
+    image: dbatools/sqlinstance
+    container_name: sql1
+    hostname: sql1
+    ports:
+      - "1433:1433"
+      - "5022:5022"
+    volumes:
+      - /tmp:/sharedpath
+
+  sql2:
+    image: dbatools/sqlinstance2
+    container_name: sql2
+    hostname: sql2
+    ports:
+      - "14333:1433"
+      - "5023:5023"
+    volumes:
+      - /tmp:/sharedpath
+
+  sql3:
+    image: dbatools/sqlinstance2
+    container_name: sql3
+    hostname: sql3
+    ports:
+      - "14334:1433"
+      - "5024:5023"
+    volumes:
+      - /tmp:/sharedpath

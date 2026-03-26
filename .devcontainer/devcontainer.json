@@ -1,0 +1,14 @@
+{
+  "name": "dbachecks-ag-lab",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspaces/dbachecks",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.powershell"
+      ]
+    }
+  },
+  "postCreateCommand": "pwsh -NoLogo -NoProfile -Command \"Install-Module dbatools -Scope CurrentUser -Force; Install-Module Pester -Scope CurrentUser -Force\""
+}

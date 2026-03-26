@@ -1,0 +1,23 @@
+# start containers
+docker compose -f .devcontainer/docker-compose.yml up -d
+
+
+docker ps
+
+docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd -S localhost -U sqladmin -P dbatools.IO -Q "SELECT @@SERVERNAME"
+docker exec -it sql2 /opt/mssql-tools/bin/sqlcmd -S localhost -U sqladmin -P dbatools.IO -Q "SELECT @@SERVERNAME"
+docker exec -it sql3 /opt/mssql-tools/bin/sqlcmd -S localhost -U sqladmin -P dbatools.IO -Q "SELECT @@SERVERNAME"
+
+
+alias sql1="docker exec sql1 /opt/mssql-tools/bin/sqlcmd -S localhost -U sqladmin -P dbatools.IO"
+alias sql2="docker exec sql2 /opt/mssql-tools/bin/sqlcmd -S localhost -U sqladmin -P dbatools.IO"
+alias sql3="docker exec sql3 /opt/mssql-tools/bin/sqlcmd -S localhost -U sqladmin -P dbatools.IO"
+
+
+sql1 -Q "SELECT @@SERVERNAME"
+
+
+
+docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}"
+
+docker exec -it workspace pwsh
