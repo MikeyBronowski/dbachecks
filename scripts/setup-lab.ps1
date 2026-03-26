@@ -1,8 +1,11 @@
 # scripts/setup-lab.ps1
 
 
-# Install-Module dbatools -Scope CurrentUser -Force
-# Install-Module dbachecks -Scope CurrentUser -Force
+<# 
+Install-Module dbatools -Scope CurrentUser -Force
+Install-Module Pester -RequiredVersion 4.10.1 -Scope CurrentUser -Force -SkipPublisherCheck
+Install-Module PSFramework -Scope CurrentUser -Force
+#>
 
 $ErrorActionPreference = 'Stop'
 
